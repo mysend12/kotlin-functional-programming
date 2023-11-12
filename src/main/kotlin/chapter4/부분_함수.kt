@@ -1,3 +1,5 @@
+package chapter4
+
 /**
  * 부분함수: 모든 가능한 입력 중, 일부 입력에 대한 결과만 정의한 함수
  *
@@ -62,7 +64,7 @@ fun main() {
 //        }
 //    }
 //
-//    val oneTwoThree = PartialFunction(condition, body)
+//    val oneTwoThree = chapter4.PartialFunction(condition, body)
 //    if (oneTwoThree.isDefinedAt(3))
 //        print(oneTwoThree(3))
 //    else
@@ -70,7 +72,7 @@ fun main() {
 
 //    println()
 
-//    val isEven = PartialFunction<Int, String>({ it % 2 == 0 }, { "$it is even" })
+//    val isEven = chapter4.PartialFunction<Int, String>({ it % 2 == 0 }, { "$it is even" })
 //    if (isEven.isDefinedAt(100))
 //        print(isEven(100))
 //    else
@@ -79,7 +81,7 @@ fun main() {
 //    val condition: (Int) -> Boolean = { it.rem(2) == 0 }
 //    val body: (Int) -> String = { "$it is even" }
 //
-//    val isEven = body.toPartialFunction(condition)
+//    val isEven = body.chapter4.toPartialFunction(condition)
 //
 //    if (isEven.isDefinedAt(101))
 //        print(isEven(101))

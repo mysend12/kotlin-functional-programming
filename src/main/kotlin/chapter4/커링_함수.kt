@@ -1,3 +1,5 @@
+package chapter4
+
 /**
  * 커링함수: 여러 개의 매개변수를 받는 함수를 분리하여,
  *        단일 매개변수를 받는 부분 적용 함수의 체인으로 만드는 방법
@@ -12,7 +14,7 @@ fun multiThree(a: Int) = { b: Int -> { c: Int -> a * b * c } }
 
 /**
  * 연습문제 4-3
- * 두 개의 매개변수를 받아서 큰 값을 반환하는 max 함수를,
+ * 두 개의 매개변수를 받아서 큰 값을 반환하는 chapter4.max 함수를,
  * 커링을 사용할 수 있도록 구현하라.
  */
 fun max(a: Int) = { b: Int -> a.coerceAtLeast(b) }
@@ -62,7 +64,7 @@ fun main() {
     /**
      * 연습문제 4-4
      * 두 개의 매개변수를 받아서 작은 값을 반환하는 min 함수를,
-     * curried 함수를 사용해서 작성하라.
+     * chapter4.curried 함수를 사용해서 작성하라.
      */
     println("연습문제 4-4")
     val min = { a: Int, b: Int -> a.coerceAtMost(b) }
