@@ -32,7 +32,7 @@ tailrec fun <T, R> FunList<T>.map(acc: FunList<R> = FunList.Nil, f: (T) -> R): F
 
 fun <T> funListOf(vararg elements: T): FunList<T> = elements.toFunList()
 
-private fun <T> Array<out T>.toFunList(): FunList<T> = when {
+fun <T> Array<out T>.toFunList(): FunList<T> = when {
     this.isEmpty() -> FunList.Nil
     else -> FunList.Cons(this[0], this.copyOfRange(1, this.size).toFunList())
 }
@@ -53,6 +53,23 @@ tailrec fun <T, R> FunList<T>.indexedMap(
 ): FunList<R> = when (this) {
     FunList.Nil -> acc.reverse()
     is FunList.Cons -> tail.indexedMap(index + 1, acc.addHead(f(index, head)), f)
+}
+
+tailrec fun IntProgression.toFunList(acc: FunList<Int> = FunList.Nil): FunList<Int> = when {
+    step > 0 -> when {
+        first > last -> acc.reverse()
+        else -> ((first + step)..last step step).toFunList(acc.addHead(first))
+    }
+
+    else -> when {
+        first >= last -> {
+            IntProgression.fromClosedRange(first + step, last, step).toFunList(acc.addHead(first))
+        }
+
+        else -> {
+            acc.reverse()
+        }
+    }
 }
 
 
